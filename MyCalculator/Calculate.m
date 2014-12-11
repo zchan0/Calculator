@@ -161,12 +161,37 @@ arrayForOperator;
         }else{
             
             if (![self isOperator:str]) {
-                
                 NSLog(@"%@ 不是运算符", str);
-                [self.opnd push:str stack:self.opnd];
+                
+                int j = i+1;
+                NSLog(@"j = %d", j);
+                if (j < [inputString length]) {
+                    NSLog(@"j < %d", (int)[inputString length]);
+                    char nextch = [inputString characterAtIndex:j];
+                    NSString *nextStr = [NSString stringWithFormat:@"%c", nextch];
+                    NSLog(@"nextStr:%@", nextStr);
+                    if (![self isOperator:nextStr]){//下一个字符仍然是数字
+                        NSLog(@"下一个字符仍为数字");
+                        continue;
+                    }
+                    else{
+                        NSLog(@"下一个字符不是数字");
+                        NSString *temp = [self.arrayToCalculate firstObject];
+                        NSLog(@"arrayToCal firstObject is:%@ ", temp);
+                        [self.opnd push:[self.arrayToCalculate firstObject] stack:self.opnd];
+                        [self.arrayToCalculate removeObjectAtIndex:0];
+                        NSLog(@"after remove, arrayToCal is:%@ ", self.arrayToCalculate);
+                    }
+                }else{
+                    NSString *temp = [self.arrayToCalculate firstObject];
+                    NSLog(@"arrayToCal firstObject is:%@ ", temp);
+                    [self.opnd push:[self.arrayToCalculate firstObject] stack:self.opnd];
+                    [self.arrayToCalculate removeObjectAtIndex:0];
+                    NSLog(@"j = %d, arrayToCal is:%@ ", (int)[inputString length],self.arrayToCalculate);
+                }
+                
                 NSLog(@"opnd:%@", self.opnd.stackArray);
                 NSLog(@"optr:%@", self.optr.stackArray);
-                continue;
                 
             }else{
                 
