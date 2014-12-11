@@ -42,30 +42,11 @@ arrayForOperator;
 
 -(BOOL)isOperator:(NSString *)ch
 {
-    NSArray *validOperator = [Calculate validOperator];
-    /*
-    if ([ch isKindOfClass:[NSString class]]) {
-        NSLog(@"ch is %@",[NSString class]);
-    }else{
-        NSLog(@"ch is not NSString!");
-    }
-    
-    for (NSString *optr in validOperator) {
-        NSLog(@"optr:%@, ch:%@", optr, ch);
-        if ([optr isEqualToString:ch]) {
-            return YES;
-        }
-    }
-    return NO;*/
-    if ([validOperator containsObject:ch]) {
+    if ([[Calculate validOperator] containsObject:ch]) {
         return YES;
     }else
         return NO;
-    /*
-    if ([self.arrayForOperator containsObject:ch]) {
-        return YES;
-    }else
-        return NO;*/
+    
 }
 
 -(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr
@@ -153,6 +134,8 @@ arrayForOperator;
     self.optrSize = self.arrayForOperator.count;
     self.opndSize = self.arrayToCalculate.count;
     
+    NSLog(@"arrayToCalculate:%@", self.arrayToCalculate);
+    
     //表达式计算
     
     //初始化两个栈
@@ -168,14 +151,9 @@ arrayForOperator;
     NSString *theta;//存放计算符号
     NSString *a, *b;//存放操作数
     
-    /*int i = 0;
-    char ch = [inputString characterAtIndex:i];
-    NSString *str = [NSString stringWithFormat:@"%c", ch];*/
     for (int i = 0; i < [inputString length]; i++) {
-    //while
         
         char ch = [inputString characterAtIndex:i];
-        //NSString *str = [NSString stringWithUTF8String:&ch];
         NSString *str = [NSString stringWithFormat:@"%c", ch];
         
         if (([str isEqualToString:@"="]) && ([[self.optr getTop:self.optr] isEqualToString:@"="]) ) {
@@ -211,19 +189,12 @@ arrayForOperator;
                     }
                     case 1:
                     {    //脱括号并接收下一元素
-                        /*bracket = [self.optr getTop:self.optr];
-                        if([self.optr pop:bracket stack:self.optr])
-                            NSLog(@"%@ 和 %@ 优先级相等，脱括号并接收下一元素", str, bracket);
-                        else
-                            NSLog(@"pop failed");*/
                         bracket = [self.optr pop:self.optr];
                         NSLog(@"%@ 和 %@ 优先级相等，脱括号并接收下一元素", str, bracket);
                         break;
                     }
                     case 2:
                     {   //退栈并将运算结果入栈
-                        /*if (([self.optr pop:theta stack:self.optr]) && ([self.opnd pop:a stack:self.opnd]) && ([self.opnd pop:b stack:self.opnd])) {*/
-                        
                         --i;//栈外运算符的优先级小于栈顶元素，弹出当前栈顶元素，保留当前栈外元素
                         
                         b = [self.opnd pop:self.opnd];
@@ -236,10 +207,10 @@ arrayForOperator;
                         double res = [self calculate:da opnd2:db optr:theta];
                         NSString *result = [NSString stringWithFormat:@"%f", res];
                         [self.opnd push:result stack:self.opnd];
+                        
                         NSLog(@"after compute, opnd is:%@", self.opnd.stackArray);
                         NSLog(@"after compute, optr is:%@", self.optr.stackArray);
-                        //}else
-                            //NSLog(@"pop failed");
+                
                         break;
                     }
                     default:

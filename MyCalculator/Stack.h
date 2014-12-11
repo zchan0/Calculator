@@ -15,12 +15,10 @@
 @property(nonatomic, readonly) NSMutableArray *stackArray;
 @property(nonatomic, readonly) NSString *popElement;
 
-//designated initializer
--(instancetype)initWithStacksize:(NSUInteger)Stacksize;
+-(instancetype)initWithStacksize:(NSUInteger)Stacksize;//designated initializer
 
 -(BOOL)push:(NSString *)element stack:(Stack *)stack;
 
-//-(BOOL)pop:(NSString *)element stack:(Stack *)stack;
 -(NSString *)pop:(Stack *)stack;
 
 -(NSString *)getTop:(Stack *)stack;

@@ -16,9 +16,6 @@
 +(NSDictionary *)outStackPriority;
 
 
-//判断是否是实数,暂时不考虑复数计算
-//-(BOOL)isNumeric:(NSString *) ch;
-
 //判断是操作符还是操作数
 -(BOOL)isOperator:(NSString *) ch;
 
