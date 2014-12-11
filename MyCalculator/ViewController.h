@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Calculate.h"
 
 @interface ViewController : UIViewController
 
+//-(void)getPriority;
 
 @end
 

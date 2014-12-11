@@ -14,6 +14,8 @@
 		5460F2D71A3450290045098C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5460F2D61A3450290045098C /* Images.xcassets */; };
 		5460F2DA1A3450290045098C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5460F2D81A3450290045098C /* LaunchScreen.xib */; };
 		5460F2E61A3450290045098C /* MyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2E51A3450290045098C /* MyCalculatorTests.m */; };
+		5460F2F11A3450520045098C /* Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2F01A3450520045098C /* Calculate.m */; };
+		547166091A36E307006ADFAF /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 547166081A36E307006ADFAF /* Stack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		5460F2DF1A3450290045098C /* MyCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5460F2E41A3450290045098C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5460F2E51A3450290045098C /* MyCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCalculatorTests.m; sourceTree = "<group>"; };
+		5460F2EF1A3450520045098C /* Calculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculate.h; sourceTree = "<group>"; };
+		5460F2F01A3450520045098C /* Calculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculate.m; sourceTree = "<group>"; };
+		547166071A36E307006ADFAF /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		547166081A36E307006ADFAF /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +87,7 @@
 		5460F2C81A3450290045098C /* MyCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				5460F2CD1A3450290045098C /* AppDelegate.h */,
-				5460F2CE1A3450290045098C /* AppDelegate.m */,
+				5460F2F21A34505B0045098C /* Model */,
 				5460F2D01A3450290045098C /* ViewController.h */,
 				5460F2D11A3450290045098C /* ViewController.m */,
 				5460F2D31A3450290045098C /* Main.storyboard */,
@@ -96,6 +101,8 @@
 		5460F2C91A3450290045098C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5460F2CD1A3450290045098C /* AppDelegate.h */,
+				5460F2CE1A3450290045098C /* AppDelegate.m */,
 				5460F2CA1A3450290045098C /* Info.plist */,
 				5460F2CB1A3450290045098C /* main.m */,
 			);
@@ -117,6 +124,17 @@
 				5460F2E41A3450290045098C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5460F2F21A34505B0045098C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5460F2EF1A3450520045098C /* Calculate.h */,
+				5460F2F01A3450520045098C /* Calculate.m */,
+				547166071A36E307006ADFAF /* Stack.h */,
+				547166081A36E307006ADFAF /* Stack.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5460F2F11A3450520045098C /* Calculate.m in Sources */,
 				5460F2D21A3450290045098C /* ViewController.m in Sources */,
 				5460F2CF1A3450290045098C /* AppDelegate.m in Sources */,
+				547166091A36E307006ADFAF /* Stack.m in Sources */,
 				5460F2CC1A3450290045098C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +434,7 @@
 				5460F2EB1A3450290045098C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5460F2EC1A3450290045098C /* Build configuration list for PBXNativeTarget "MyCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +443,7 @@
 				5460F2EE1A3450290045098C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
