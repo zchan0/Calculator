@@ -49,6 +49,19 @@ arrayForOperator;
     
 }
 
+-(BOOL)isNumberic:(NSString *)ch
+{
+    NSCharacterSet* Digits = [NSCharacterSet decimalDigitCharacterSet];
+    NSString *value = [ch stringByTrimmingCharactersInSet:Digits];
+    NSLog(@"nonDigits:%@, value:%@", Digits, value);
+    
+    if ([value length]!= 0) {//value为ch中除数字之外的字符
+        NSLog(@"包含非法运算数！");
+        return NO;
+    }
+    return YES;
+}
+
 -(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr
 {
     NSDictionary *inStackPriority = [Calculate inStackPriority];
@@ -131,6 +144,13 @@ arrayForOperator;
     self.arrayToCalculate = [NSMutableArray arrayWithArray:tempArray];
     self.arrayToCalculate = [self clearWhitespace:self.arrayToCalculate];
     
+    //检查是否包含非法字符
+    for (NSString *ch in self.arrayToCalculate) {
+        if (![self isNumberic:ch]) {
+            return @"包含非法字符!";
+        }
+    }
+    
     self.optrSize = self.arrayForOperator.count;
     self.opndSize = self.arrayToCalculate.count;
     
@@ -176,22 +196,15 @@ arrayForOperator;
                     }
                     else{
                         NSLog(@"下一个字符不是数字");
-                        NSString *temp = [self.arrayToCalculate firstObject];
-                        NSLog(@"arrayToCal firstObject is:%@ ", temp);
                         [self.opnd push:[self.arrayToCalculate firstObject] stack:self.opnd];
                         [self.arrayToCalculate removeObjectAtIndex:0];
-                        NSLog(@"after remove, arrayToCal is:%@ ", self.arrayToCalculate);
                     }
                 }else{
-                    NSString *temp = [self.arrayToCalculate firstObject];
-                    NSLog(@"arrayToCal firstObject is:%@ ", temp);
                     [self.opnd push:[self.arrayToCalculate firstObject] stack:self.opnd];
                     [self.arrayToCalculate removeObjectAtIndex:0];
-                    NSLog(@"j = %d, arrayToCal is:%@ ", (int)[inputString length],self.arrayToCalculate);
                 }
-                
-                NSLog(@"opnd:%@", self.opnd.stackArray);
-                NSLog(@"optr:%@", self.optr.stackArray);
+                /*NSLog(@"opnd:%@", self.opnd.stackArray);
+                NSLog(@"optr:%@", self.optr.stackArray);*/
                 
             }else{
                 
@@ -220,6 +233,7 @@ arrayForOperator;
                     }
                     case 2:
                     {   //退栈并将运算结果入栈
+                        
                         --i;//栈外运算符的优先级小于栈顶元素，弹出当前栈顶元素，保留当前栈外元素
                         
                         b = [self.opnd pop:self.opnd];

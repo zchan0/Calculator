@@ -15,6 +15,8 @@
 +(NSDictionary *)inStackPriority;
 +(NSDictionary *)outStackPriority;
 
+//判断输入的字符串中是否全是数字
+-(BOOL)isNumberic:(NSString *) ch;
 
 //判断是操作符还是操作数
 -(BOOL)isOperator:(NSString *) ch;

@@ -38,6 +38,7 @@
 
 - (IBAction)TouchToSee:(UIButton *)sender {
     self.resultLabel.text = [self.calculator ExpressionCalculate:self.inputText.text];
+    //[self.calculator isNumberic:@"123321"];
 }
 
 -(Calculate *)calculator
