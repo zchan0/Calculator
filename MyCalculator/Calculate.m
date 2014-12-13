@@ -24,6 +24,33 @@ arrayForOperator;
 
 @implementation Calculate
 
+-(void)clearAll
+{
+    self.input = nil;
+}
+
+//override getter:如果不这样做有可能得到一个空的对象
+-(NSMutableString *)input
+{
+    if (!_input) {
+        _input = [[NSMutableString alloc]init];
+    }
+    return _input;
+}
+
+-(void)clearSpace
+{
+    self.input = nil;
+}
+
+-(void)delNumber
+{
+    long length = self.input.length - 1;
+    if (length >= 0) {
+        [self.input deleteCharactersInRange:NSMakeRange(length, 1)];//只删除一个
+    }
+}
+
 
 +(NSArray *)validOperator
 {
@@ -56,7 +83,7 @@ arrayForOperator;
     NSLog(@"nonDigits:%@, value:%@", Digits, value);
     
     if ([value length]!= 0) {//value为ch中除数字之外的字符
-        NSLog(@"包含非法运算数！");
+        NSLog(@"Error!");
         return NO;
     }
     return YES;
@@ -84,7 +111,7 @@ arrayForOperator;
 }
 
 
--(double)calculate:(double)opnd1 opnd2:(double)opnd2 optr:(NSString *)optr
+-(float)calculate:(float)opnd1 opnd2:(float)opnd2 optr:(NSString *)optr
 {
     NSArray *items = @[@"+", @"-", @"*", @"/"];
     int item = (int)[items indexOfObject:optr];
@@ -144,17 +171,20 @@ arrayForOperator;
     self.arrayToCalculate = [NSMutableArray arrayWithArray:tempArray];
     self.arrayToCalculate = [self clearWhitespace:self.arrayToCalculate];
     
+    
     //检查是否包含非法字符
+    /*
     for (NSString *ch in self.arrayToCalculate) {
         if (![self isNumberic:ch]) {
-            return @"包含非法字符!";
+            return @"Error!";
         }
-    }
+    }*/
     
     self.optrSize = self.arrayForOperator.count;
     self.opndSize = self.arrayToCalculate.count;
     
     NSLog(@"arrayToCalculate:%@", self.arrayToCalculate);
+    NSLog(@"arrayForOperator:%@", self.arrayForOperator);
     
     //表达式计算
     
@@ -241,9 +271,9 @@ arrayForOperator;
                         theta = [self.optr pop:self.optr];
                         NSLog(@"计算%@ %@ %@", a, theta, b);
                         
-                        double da = [a doubleValue];
-                        double db = [b doubleValue];
-                        double res = [self calculate:da opnd2:db optr:theta];
+                        float da = [a doubleValue];
+                        float db = [b doubleValue];
+                        float res = [self calculate:da opnd2:db optr:theta];
                         NSString *result = [NSString stringWithFormat:@"%f", res];
                         [self.opnd push:result stack:self.opnd];
                         

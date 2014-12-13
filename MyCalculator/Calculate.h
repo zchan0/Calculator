@@ -11,6 +11,8 @@
 
 @interface Calculate : NSObject
 
+@property(nonatomic,strong) NSMutableString *input;
+
 +(NSArray *)validOperator;
 +(NSDictionary *)inStackPriority;
 +(NSDictionary *)outStackPriority;
@@ -23,10 +25,13 @@
 
 -(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr;
 
--(double) calculate:(double)opnd1 opnd2:(double)opnd2 optr:(NSString *)optr;
+-(float)calculate:(float)opnd1 opnd2:(float)opnd2 optr:(NSString *)optr;
 
 -(NSMutableArray *)clearWhitespace:(NSMutableArray *) inputArray;
 
 -(NSString *)ExpressionCalculate:(NSString *)inputString;
+
+-(void)clearAll;
+-(void)delNumber;
 
 @end

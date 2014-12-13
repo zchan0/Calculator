@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5457C08E1A3C160800C36CCD /* btnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5457C08D1A3C160800C36CCD /* btnView.m */; };
 		5460F2CC1A3450290045098C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2CB1A3450290045098C /* main.m */; };
 		5460F2CF1A3450290045098C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2CE1A3450290045098C /* AppDelegate.m */; };
 		5460F2D21A3450290045098C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2D11A3450290045098C /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5457C08C1A3C160800C36CCD /* btnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btnView.h; sourceTree = "<group>"; };
+		5457C08D1A3C160800C36CCD /* btnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = btnView.m; sourceTree = "<group>"; };
 		5460F2C61A3450290045098C /* MyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5460F2CA1A3450290045098C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5460F2CB1A3450290045098C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				5460F2D61A3450290045098C /* Images.xcassets */,
 				5460F2D81A3450290045098C /* LaunchScreen.xib */,
 				5460F2C91A3450290045098C /* Supporting Files */,
+				5457C08C1A3C160800C36CCD /* btnView.h */,
+				5457C08D1A3C160800C36CCD /* btnView.m */,
 			);
 			path = MyCalculator;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				5460F2CF1A3450290045098C /* AppDelegate.m in Sources */,
 				547166091A36E307006ADFAF /* Stack.m in Sources */,
 				5460F2CC1A3450290045098C /* main.m in Sources */,
+				5457C08E1A3C160800C36CCD /* btnView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
