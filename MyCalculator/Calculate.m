@@ -83,8 +83,49 @@ arrayForOperator;
     NSLog(@"nonDigits:%@, value:%@", Digits, value);
     
     if ([value length]!= 0) {//value为ch中除数字之外的字符
-        NSLog(@"Error!");
-        return NO;
+        if (![value isEqualToString:@"."]) {
+            NSLog(@"Error!");
+            return NO;
+        }
+    }
+    return YES;
+}
+
+//判断是否为括号
+-(BOOL)isBracket:(NSString *)ch
+{
+    if ([ch isEqualToString:@"("] || [ch isEqualToString:@")"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)isValidInput:(NSString *)ch
+{
+    NSUInteger length = [ch length];
+    for (int i = 0; i < length; i++) {
+        char c = [ch characterAtIndex:i];
+        NSString *temp1 = [NSString stringWithFormat:@"%c", c];
+        
+        if (![self isOperator:temp1]) {
+            continue;
+        }else{
+            int j = i + 1;
+            if (j < length) {
+                char nextc = [ch characterAtIndex:j];
+                NSString *temp2 = [NSString stringWithFormat:@"%c", nextc];
+                
+                if ([self isOperator:temp2]) {
+                    if (!([self isBracket:temp1] ^ [self isBracket:temp2])) {
+                        //只有一个是括号，返回值为yes，否则，返回值为no
+                        //异或
+                        return NO;
+                    }
+                }
+            }
+
+        }
+        
     }
     return YES;
 }
@@ -154,6 +195,10 @@ arrayForOperator;
 
 -(NSString *)ExpressionCalculate:(NSString *)inputString
 {
+    if (![self isValidInput:inputString]) {
+        return @"Error input!";
+    }
+    
     //从输入的字符串中提取运算符
     self.arrayForOperator = [NSMutableArray array];//必须初始化，否则数组存不上东西
     self.arrayToCalculate = [NSMutableArray array];
@@ -161,7 +206,7 @@ arrayForOperator;
     for (int i = 0; i < [inputString length]; i++) {
         char ch = [inputString characterAtIndex:i];
         if ((ch == '+') || (ch == '-') || (ch == '*') || (ch == '/') || (ch == '%') || (ch == '(') || (ch == ')') ) {
-            NSString *temp = [NSString stringWithUTF8String:&ch];
+            NSString *temp = [NSString stringWithFormat:@"%c", ch];
             [self.arrayForOperator addObject:temp];
         }
     }
@@ -173,12 +218,12 @@ arrayForOperator;
     
     
     //检查是否包含非法字符
-    /*
+    
     for (NSString *ch in self.arrayToCalculate) {
         if (![self isNumberic:ch]) {
             return @"Error!";
         }
-    }*/
+    }
     
     self.optrSize = self.arrayForOperator.count;
     self.opndSize = self.arrayToCalculate.count;

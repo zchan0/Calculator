@@ -23,6 +23,9 @@
 //判断是操作符还是操作数
 -(BOOL)isOperator:(NSString *) ch;
 
+//判断是否输入了连续的运算符
+-(BOOL)isValidInput:(NSString *) ch;
+
 -(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr;
 
 -(float)calculate:(float)opnd1 opnd2:(float)opnd2 optr:(NSString *)optr;
