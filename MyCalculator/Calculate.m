@@ -38,10 +38,11 @@ arrayForOperator;
     return _input;
 }
 
+/*
 -(void)clearSpace
 {
     self.input = nil;
-}
+}*/
 
 -(void)delNumber
 {
@@ -80,11 +81,11 @@ arrayForOperator;
 {
     NSCharacterSet* Digits = [NSCharacterSet decimalDigitCharacterSet];
     NSString *value = [ch stringByTrimmingCharactersInSet:Digits];
-    NSLog(@"nonDigits:%@, value:%@", Digits, value);
+    NSLog(@"nonDigits:value:%@", value);
     
     if ([value length]!= 0) {//value为ch中除数字之外的字符
-        if (![value isEqualToString:@"."]) {
-            NSLog(@"Error!");
+        if (!([value isEqualToString:@"."] ^ [value isEqualToString:@"-"])) {//value中包含.或者-可能为小数或者负数
+            NSLog(@"isNumberic Error!");
             return NO;
         }
     }
@@ -99,6 +100,25 @@ arrayForOperator;
     }
     return NO;
 }
+
+//判断是否为整数
+-(BOOL)isInteger:(NSString *)content
+{
+    if (![self isNumberic:content]) {
+        NSLog(@"content has operator.");
+        return NO;
+    }
+    
+    int intContent = [content intValue];
+    double doubleContent = [content doubleValue];
+    
+    
+    if ((doubleContent - intContent == 0))
+        return YES;
+    else
+        return NO;
+}
+
 
 -(BOOL)isValidInput:(NSString *)ch
 {
@@ -196,6 +216,7 @@ arrayForOperator;
 -(NSString *)ExpressionCalculate:(NSString *)inputString
 {
     if (![self isValidInput:inputString]) {
+        NSLog(@"Exp.calculating, invalid input!");
         return @"Error input!";
     }
     
@@ -221,6 +242,7 @@ arrayForOperator;
     
     for (NSString *ch in self.arrayToCalculate) {
         if (![self isNumberic:ch]) {
+            NSLog(@"ch isn't numberic!");
             return @"Error!";
         }
     }
@@ -336,6 +358,11 @@ arrayForOperator;
         }
     }//for
     NSString *expResult = [self.opnd getTop:self.opnd];
+    if ([self isInteger:expResult]) {
+        int temp = [expResult intValue];
+        NSNumber *num = [[NSNumber alloc] initWithInt:temp];
+        return [num stringValue];
+    }
     return expResult;
 }
 

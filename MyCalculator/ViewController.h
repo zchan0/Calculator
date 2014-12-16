@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Calculate.h"
+#import "advancedCalculator.h"
+#import "SecondViewController.h"
 
 @interface ViewController : UIViewController
 
