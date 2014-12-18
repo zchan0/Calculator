@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		544B1FB81A41A79200642011 /* HealthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 544B1FB71A41A79200642011 /* HealthViewController.m */; };
 		5457C08E1A3C160800C36CCD /* btnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5457C08D1A3C160800C36CCD /* btnView.m */; };
 		5460F2CC1A3450290045098C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2CB1A3450290045098C /* main.m */; };
 		5460F2CF1A3450290045098C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2CE1A3450290045098C /* AppDelegate.m */; };
@@ -17,6 +18,7 @@
 		5460F2E61A3450290045098C /* MyCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2E51A3450290045098C /* MyCalculatorTests.m */; };
 		5460F2F11A3450520045098C /* Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5460F2F01A3450520045098C /* Calculate.m */; };
 		547166091A36E307006ADFAF /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 547166081A36E307006ADFAF /* Stack.m */; };
+		54D24F951A41837000483260 /* Calculate+Health.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D24F941A41837000483260 /* Calculate+Health.m */; };
 		54D70B4E1A3EFCC3006241AC /* advancedCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D70B4D1A3EFCC3006241AC /* advancedCalculator.m */; };
 		54D70B511A3F0C3F006241AC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D70B501A3F0C3F006241AC /* SecondViewController.m */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		544B1FB61A41A79200642011 /* HealthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthViewController.h; sourceTree = "<group>"; };
+		544B1FB71A41A79200642011 /* HealthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthViewController.m; sourceTree = "<group>"; };
 		5457C08C1A3C160800C36CCD /* btnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btnView.h; sourceTree = "<group>"; };
 		5457C08D1A3C160800C36CCD /* btnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = btnView.m; sourceTree = "<group>"; };
 		5460F2C61A3450290045098C /* MyCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +55,8 @@
 		5460F2F01A3450520045098C /* Calculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculate.m; sourceTree = "<group>"; };
 		547166071A36E307006ADFAF /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		547166081A36E307006ADFAF /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		54D24F931A41837000483260 /* Calculate+Health.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Calculate+Health.h"; sourceTree = "<group>"; };
+		54D24F941A41837000483260 /* Calculate+Health.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Calculate+Health.m"; sourceTree = "<group>"; };
 		54D70B4C1A3EFCC3006241AC /* advancedCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = advancedCalculator.h; sourceTree = "<group>"; };
 		54D70B4D1A3EFCC3006241AC /* advancedCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = advancedCalculator.m; sourceTree = "<group>"; };
 		54D70B4F1A3F0C3F006241AC /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 				5460F2D31A3450290045098C /* Main.storyboard */,
 				54D70B4F1A3F0C3F006241AC /* SecondViewController.h */,
 				54D70B501A3F0C3F006241AC /* SecondViewController.m */,
+				544B1FB61A41A79200642011 /* HealthViewController.h */,
+				544B1FB71A41A79200642011 /* HealthViewController.m */,
 				5460F2D61A3450290045098C /* Images.xcassets */,
 				5460F2D81A3450290045098C /* LaunchScreen.xib */,
 				5460F2C91A3450290045098C /* Supporting Files */,
@@ -148,6 +156,8 @@
 				5460F2F01A3450520045098C /* Calculate.m */,
 				547166071A36E307006ADFAF /* Stack.h */,
 				547166081A36E307006ADFAF /* Stack.m */,
+				54D24F931A41837000483260 /* Calculate+Health.h */,
+				54D24F941A41837000483260 /* Calculate+Health.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -257,8 +267,10 @@
 				5460F2D21A3450290045098C /* ViewController.m in Sources */,
 				5460F2CF1A3450290045098C /* AppDelegate.m in Sources */,
 				54D70B511A3F0C3F006241AC /* SecondViewController.m in Sources */,
+				54D24F951A41837000483260 /* Calculate+Health.m in Sources */,
 				547166091A36E307006ADFAF /* Stack.m in Sources */,
 				5460F2CC1A3450290045098C /* main.m in Sources */,
+				544B1FB81A41A79200642011 /* HealthViewController.m in Sources */,
 				5457C08E1A3C160800C36CCD /* btnView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

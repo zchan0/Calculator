@@ -92,10 +92,25 @@ arrayForOperator;
     return YES;
 }
 
-//判断是否为括号
 -(BOOL)isBracket:(NSString *)ch
 {
     if ([ch isEqualToString:@"("] || [ch isEqualToString:@")"]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)isLeftBracket:(NSString *)ch
+{
+    if ([ch isEqualToString:@"("]) {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)isRightBracket:(NSString *)ch
+{
+    if ([ch isEqualToString:@")"]) {
         return YES;
     }
     return NO;
@@ -119,34 +134,43 @@ arrayForOperator;
         return NO;
 }
 
-
+//判断是否为有效输入
 -(BOOL)isValidInput:(NSString *)ch
 {
     NSUInteger length = [ch length];
+    NSUInteger lcount = 0, rcount = 0;
+    
     for (int i = 0; i < length; i++) {
         char c = [ch characterAtIndex:i];
-        NSString *temp1 = [NSString stringWithFormat:@"%c", c];
+        NSString *iStr = [NSString stringWithFormat:@"%c", c];
         
-        if (![self isOperator:temp1]) {
+        if (![self isOperator:iStr])
+            //不考虑数字
             continue;
+        else if([self isBracket:iStr]){
+            if ([self isLeftBracket:iStr])
+                lcount++;
+            if([self isRightBracket:iStr])
+                rcount++;
         }else{
+            //istr既不是数字也不是括号
             int j = i + 1;
             if (j < length) {
                 char nextc = [ch characterAtIndex:j];
-                NSString *temp2 = [NSString stringWithFormat:@"%c", nextc];
-                
-                if ([self isOperator:temp2]) {
-                    if (!([self isBracket:temp1] ^ [self isBracket:temp2])) {
-                        //只有一个是括号，返回值为yes，否则，返回值为no
-                        //异或
+                NSString *jStr = [NSString stringWithFormat:@"%c", nextc];
+                if ([self isOperator:jStr]) {
+                    if (![self isBracket:jStr])
                         return NO;
-                    }
                 }
             }
 
         }
-        
+    }//for
+    
+    if (lcount != rcount) {
+        return NO;
     }
+    
     return YES;
 }
 
@@ -300,13 +324,14 @@ arrayForOperator;
                     [self.opnd push:[self.arrayToCalculate firstObject] stack:self.opnd];
                     [self.arrayToCalculate removeObjectAtIndex:0];
                 }
-                /*NSLog(@"opnd:%@", self.opnd.stackArray);
-                NSLog(@"optr:%@", self.optr.stackArray);*/
+                NSLog(@"opnd:%@", self.opnd.stackArray);
+                NSLog(@"optr:%@", self.optr.stackArray);
                 
             }else{
                 
                 NSLog(@"%@ 是运算符", str);
                 NSLog(@"optr:%@", self.optr.stackArray);
+                NSLog(@"opnd: %@", self.opnd.stackArray);
                 
                 //判断优先级
                 NSString *priority = [self comparePriority:[self.optr getTop:self.optr] outOptr:str];
@@ -356,7 +381,9 @@ arrayForOperator;
             }
         
         }
-    }//for
+        
+    }    //for
+    
     NSString *expResult = [self.opnd getTop:self.opnd];
     if ([self isInteger:expResult]) {
         int temp = [expResult intValue];
