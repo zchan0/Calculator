@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "advancedCalculator.h"
+#import "TriangleViewController.h"
 
 @interface SecondViewController : UIViewController
 

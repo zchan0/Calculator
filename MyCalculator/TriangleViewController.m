@@ -1,42 +1,38 @@
 //
-//  SecondViewController.m
+//  TriangleViewController.m
 //  MyCalculator
 //
-//  Created by joyzh on 14/12/15.
+//  Created by zhengcc on 14/12/20.
 //  Copyright (c) 2014年 SSE USTC. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "TriangleViewController.h"
 
-@interface SecondViewController()
+@interface TriangleViewController()
+
 @property (weak, nonatomic) IBOutlet UITextField *inputText;
-
 @property (weak, nonatomic) IBOutlet UIButton *leftBracket;
 @property (weak, nonatomic) IBOutlet UIButton *rightBracket;
-@property (weak, nonatomic) IBOutlet UIButton *btnDiv;
-@property (weak, nonatomic) IBOutlet UIButton *btnMult;
-@property (weak, nonatomic) IBOutlet UIButton *btnSub;
-@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
-@property (weak, nonatomic) IBOutlet UIButton *btnPi;
-@property (weak, nonatomic) IBOutlet UIButton *btne;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnDiv;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnMult;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnSub;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
 @end
 
-@implementation SecondViewController
+@implementation TriangleViewController
 
-//不再需要属性初始化，因为这是第二个视图控制器，在第一个中初始化已经完成
 - (IBAction)touchButton:(UIButton *)sender
 {
-    NSLog(@"It's second view touching.");
+    NSLog(@"It's triangle view touching.");
     
-    if(sender.tag == 1 || sender.tag == 2 || sender.tag == 6 || sender.tag == 14 || sender.tag == 3 || sender.tag == 7 || sender.tag == 11 || sender.tag == 15){//如果是这四个按钮，执行将按钮上的text显示在屏幕上
+    if(sender.tag == 1 || sender.tag == 2 || sender.tag == 3 ||  sender.tag == 7 || sender.tag == 11 || sender.tag == 15){//如果是这六个按钮，执行将按钮上的text显示在屏幕上
         
-        if ([[[sender titleLabel] text] isEqualToString:@"e"]) {
-            [self.calculator.input appendString:@"2.7182818"];
-        }else if([[[sender titleLabel]text] isEqualToString:@"pi"]){
-            [self.calculator.input appendString:@"3.1415926"];
-        }else if ([[[sender titleLabel] text] isEqualToString:@"×"]) {
+        if ([[[sender titleLabel] text] isEqualToString:@"×"]) {
             [self.calculator.input appendString:@"*"];
             
         }else if([[[sender titleLabel] text] isEqualToString:@"÷"]){
@@ -51,7 +47,7 @@
             self.inputText.text = [str substringWithRange:NSMakeRange(str.length - 13, 13)];
         }else{
             NSMutableString *str = [NSMutableString stringWithString:self.inputText.text];
-           [str appendString:[[sender titleLabel] text]];
+            [str appendString:[[sender titleLabel] text]];
             NSLog(@"inputtxt<13, str is %@", str);
             
             self.inputText.text = str;
@@ -61,7 +57,7 @@
     }
     
     if (sender.tag == 4) {
-        self.inputText.text = [self.calculator abs:self.calculator.input];
+        self.inputText.text = [self.calculator sin:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -69,14 +65,7 @@
     }
     
     if (sender.tag == 5) {
-
-        //NSMutableString *computeStr = [NSMutableString stringWithString:self.calculator.input];
-        //[computeStr appendString:@"="];
-        //NSLog(@"computeStr:%@", computeStr);
-        
-        //self.inputText.text = [self.calculator sqrt:[self.calculator ExpressionCalculate:computeStr]];
-        
-        self.inputText.text = [self.calculator sqrt:self.calculator.input];
+        self.inputText.text = [self.calculator cos:self.calculator.input];
         
         //NSLog(@"after compute, inputText is %@", self.inputText.text);
         
@@ -88,8 +77,16 @@
         //self.inputText.text = self.calculator.screen;//计算结果在场景之间传递
     }
     
+    if (sender.tag == 6) {
+        self.inputText.text = [self.calculator tan:self.calculator.input];
+        
+        NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
+        self.calculator.input = tempStr;
+        self.calculator.screen = tempStr;
+    }
+    
     if (sender.tag == 8) {
-        self.inputText.text = [self.calculator log2:self.calculator.input];
+        self.inputText.text = [self.calculator arcsin:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -97,7 +94,7 @@
     }
     
     if (sender.tag == 9) {
-        self.inputText.text = [self.calculator log10:self.calculator.input];
+        self.inputText.text = [self.calculator arccos:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -105,7 +102,8 @@
     }
     
     if (sender.tag == 10) {
-        self.inputText.text = [self.calculator loge:self.calculator.input];
+        //NSLog(@"It is doing factorial");
+        self.inputText.text = [self.calculator arctan:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -113,8 +111,7 @@
     }
     
     if (sender.tag == 12) {
-        NSLog(@"It is doing factorial");
-        self.inputText.text = [self.calculator factorial:self.calculator.input];
+        self.inputText.text = [self.calculator sinh:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -122,7 +119,15 @@
     }
     
     if (sender.tag == 13) {
-        self.inputText.text = [self.calculator percent:self.calculator.input];
+        self.inputText.text = [self.calculator cosh:self.calculator.input];
+        
+        NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
+        self.calculator.input = tempStr;
+        self.calculator.screen = tempStr;
+    }
+    
+    if (sender.tag == 14) {
+        self.inputText.text = [self.calculator tanh:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -130,7 +135,7 @@
     }
     
     if (sender.tag == 16) {
-        self.inputText.text = [self.calculator pow2:self.calculator.input];
+        self.inputText.text = [self.calculator arcsinh:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -138,7 +143,7 @@
     }
     
     if (sender.tag == 17) {
-        self.inputText.text = [self.calculator pow3:self.calculator.input];
+        self.inputText.text = [self.calculator arccosh:self.calculator.input];
         
         NSMutableString *tempStr = [NSMutableString stringWithString:self.inputText.text];
         self.calculator.input = tempStr;
@@ -167,11 +172,6 @@
     self.calculator.screen = tempStr;//每次计算之后，将结果也保存在screen中
 }
 
-- (IBAction)delNumber:(UIButton *)sender
-{
-    [self.calculator delNumber];
-    self.inputText.text = self.calculator.screen;
-}
 
 - (IBAction)clearAll:(UIButton *)sender
 {
@@ -179,15 +179,10 @@
     [self.calculator clearAll];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)delNumber:(UIButton *)sender
 {
-    //把advanced的实例对象传给第二个场景
-    if ([segue.identifier isEqualToString:@"TriangleScene"]) {//判断是否是第二个场景
-        if ([segue.destinationViewController isKindOfClass:[TriangleViewController class]]) {//判断目的视图控制器
-            TriangleViewController *svc = (TriangleViewController *)segue.destinationViewController;
-            svc.calculator = self.calculator;//仅传递了内容
-        }
-    }
+    [self.calculator delNumber];
+    self.inputText.text = self.calculator.screen;
 }
 
 
@@ -196,10 +191,10 @@
     //将视图刚要显示的时候，将传递过来的内容在屏幕中显示
     NSString *tmpStr = self.calculator.screen;
     if (tmpStr.length == 13) {
-        NSLog(@"first view length = 13");
+        NSLog(@"second view length = 13");
         self.inputText.text = [tmpStr substringWithRange:NSMakeRange(tmpStr.length - 13, 13)];
     }else{
-        NSLog(@"first view length < 13");
+        NSLog(@"second view length < 13, inputtxt is %@", self.inputText.text);
         self.inputText.text = tmpStr;
     }
     //self.inputText.text = self.calculator.screen;

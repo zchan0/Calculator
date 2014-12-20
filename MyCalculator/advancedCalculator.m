@@ -158,6 +158,183 @@
     return [num stringValue];
 }
 
+-(NSString *)sin:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"sin invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = sin(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)cos:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"cos invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = cos(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)tan:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"tan invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = tan(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)arcsin:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"arcsin invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = asin(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)arccos:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"arccos invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = acos(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)arctan:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"arctan invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = atan(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)sinh:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"sinh invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = sinh(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)cosh:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"cosh invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = cosh(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)tanh:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"tanh invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = tanh(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)arcsinh:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"arcsinh invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = asinh(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+-(NSString *)arccosh:(NSString *)content
+{
+    //只有对数字才能进行运算
+    if (![self isNumberic:content]) {
+        NSLog(@"arccosh invalid input");
+        return @"Error input!";
+    }
+    
+    double d = [content doubleValue];
+    double result = acosh(d);
+    //数值和对象之间，包括到字符串之间的转换
+    NSNumber *num = [[NSNumber alloc] initWithDouble:result];
+    return [num stringValue];
+
+}
+
+
 //覆盖父类中的退格方法
 -(void) delNumber
 {
