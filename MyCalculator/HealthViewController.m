@@ -69,6 +69,7 @@
 
 -(void)viewDidLoad
 {
+    [super viewDidLoad];
     self.calculator = [[Calculate alloc]init];
 }
 

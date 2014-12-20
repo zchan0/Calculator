@@ -31,7 +31,7 @@
 
 -(NSString *)comparePriority:(NSString *)inOptr outOptr:(NSString *)outOptr;
 
--(float)calculate:(float)opnd1 opnd2:(float)opnd2 optr:(NSString *)optr;
+-(double)calculate:(double)opnd1 opnd2:(double)opnd2 optr:(NSString *)optr;
 
 -(NSMutableArray *)clearWhitespace:(NSMutableArray *) inputArray;
 

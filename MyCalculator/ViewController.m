@@ -37,15 +37,6 @@
 
 @implementation ViewController
 
-/*
--(Calculate *)calculator
-{
-    if (!_calculator) {
-        _calculator = [[Calculate alloc]init];
-    }
-    return _calculator;
-}*/
-
 -(advancedCalculator *)calculator
 {
     if (!_calculator) {
@@ -54,25 +45,42 @@
     return _calculator;
 }
 
+-(void) controllScreen
+{
+    NSString *tmpStr = self.inputText.text;
+    if (tmpStr.length > 20)
+        self.inputText.text = [tmpStr substringWithRange:NSMakeRange(tmpStr.length - 20, 20)];
+    else
+        self.inputText.text = tmpStr;
+}
+
 
 - (IBAction)touchNumber:(UIButton *)sender
 {
-    NSMutableString *str = [NSMutableString stringWithString:self.inputText.text];
-    
     if ([[[sender titleLabel] text] isEqualToString:@"×"]) {
         [self.calculator.input appendString:@"*"];
-       
+        
     }else if([[[sender titleLabel] text] isEqualToString:@"÷"]){
         [self.calculator.input appendString:@"/"];
     }else
         [self.calculator.input appendString:[[sender titleLabel] text]];
     
-    [str appendString:[[sender titleLabel] text]];
-    self.calculator.screen = str;
-    self.inputText.text = str;
+    if (self.inputText.text.length == 13) {
+        NSMutableString *str = [NSMutableString stringWithString:self.calculator.input];
+        //[str appendString:[[sender titleLabel] text]];//str由input初始化，已经加入了按钮的字符
+        NSLog(@"inputtxt=13, str is %@", str);
+        self.calculator.screen = str;
+        self.inputText.text = [str substringWithRange:NSMakeRange(str.length - 13, 13)];
+    }else{
+        NSMutableString *str = [NSMutableString stringWithString:self.inputText.text];
+        [str appendString:[[sender titleLabel] text]];
+        NSLog(@"inputtxt<13, str is %@", str);
+        self.calculator.screen = str;
+        self.inputText.text = str;
+    }
+    
     
     NSLog(@"It's first view touching.");
-    NSLog(@"str is:%@", str);
     NSLog(@"cal.input is %@", self.calculator.input);
     NSLog(@"inputText is %@", self.inputText.text);
     NSLog(@"screen is %@", self.calculator.screen);
@@ -99,16 +107,6 @@
 
 - (IBAction)delNumber:(UIButton *)sender
 {
-    /*将删除的方法放入重写的类中
-    long len = self.calculator.input.length - 1;
-    if (len >= 0) {
-        [self.calculator.input deleteCharactersInRange:NSMakeRange(len, 1)];
-        self.inputText.text = self.calculator.input;
-    }*/
-    
-    //[self.calculator delNumber];
-    //与老师的代码不同，因为在compute中我让input又等于了inputText的值，前面的代码即让inputText退格了，如果再调用该函数，会退格两次
-    
     [self.calculator delNumber];
     self.inputText.text = self.calculator.screen;
 }
@@ -134,13 +132,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.inputText.text = self.calculator.screen;//从另一个场景传递回来
+    [self shouldAutorotate];
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //self.calculator = [[Calculate alloc]init];
     self.calculator = [[advancedCalculator alloc]init];
 
 }

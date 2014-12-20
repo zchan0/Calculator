@@ -196,7 +196,7 @@ arrayForOperator;
 }
 
 
--(float)calculate:(float)opnd1 opnd2:(float)opnd2 optr:(NSString *)optr
+-(double)calculate:(double)opnd1 opnd2:(double)opnd2 optr:(NSString *)optr
 {
     NSArray *items = @[@"+", @"-", @"*", @"/"];
     int item = (int)[items indexOfObject:optr];
@@ -363,10 +363,16 @@ arrayForOperator;
                         theta = [self.optr pop:self.optr];
                         NSLog(@"计算%@ %@ %@", a, theta, b);
                         
-                        float da = [a doubleValue];
-                        float db = [b doubleValue];
-                        float res = [self calculate:da opnd2:db optr:theta];
-                        NSString *result = [NSString stringWithFormat:@"%f", res];
+                        double da = [a doubleValue];
+                        NSLog(@"a = %f", da);
+                        double db = [b doubleValue];
+                        
+                        double res = [self calculate:da opnd2:db optr:theta];
+                        
+                        NSNumber *num = [[NSNumber alloc] initWithDouble:res];
+                        
+                        //NSString *result = [NSString stringWithFormat:@"%f", res];
+                        NSString *result = [num stringValue];
                         [self.opnd push:result stack:self.opnd];
                         
                         NSLog(@"after compute, opnd is:%@", self.opnd.stackArray);
@@ -386,6 +392,7 @@ arrayForOperator;
     
     NSString *expResult = [self.opnd getTop:self.opnd];
     if ([self isInteger:expResult]) {
+        NSLog(@"result is integer.");
         int temp = [expResult intValue];
         NSNumber *num = [[NSNumber alloc] initWithInt:temp];
         return [num stringValue];

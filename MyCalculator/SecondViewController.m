@@ -30,7 +30,6 @@
     NSLog(@"It's second view touching.");
     
     if(sender.tag == 1 || sender.tag == 2 || sender.tag == 6 || sender.tag == 14 || sender.tag == 3 || sender.tag == 7 || sender.tag == 11 || sender.tag == 15){//如果是这四个按钮，执行将按钮上的text显示在屏幕上
-        NSMutableString *str = [NSMutableString stringWithString:self.inputText.text];
         
         if ([[[sender titleLabel] text] isEqualToString:@"e"]) {
             [self.calculator.input appendString:@"2.7182818"];
@@ -44,11 +43,19 @@
         }else
             [self.calculator.input appendString:[[sender titleLabel] text]];
         
-        [str appendString:[[sender titleLabel] text]];
-        NSLog(@"str is:%@", str);
-
-        self.inputText.text = str;
-        self.calculator.screen = str;
+        if (self.inputText.text.length == 13) {
+            NSMutableString *str = [NSMutableString stringWithString:self.calculator.input];
+            NSLog(@"inputtxt=13, str is %@", str);
+            self.calculator.screen = str;
+            self.inputText.text = [str substringWithRange:NSMakeRange(str.length - 13, 13)];
+        }else{
+            NSMutableString *str = [NSMutableString stringWithString:self.inputText.text];
+           [str appendString:[[sender titleLabel] text]];
+            NSLog(@"inputtxt<13, str is %@", str);
+            
+            self.inputText.text = str;
+            self.calculator.screen = str;
+        }
         
     }
     
@@ -175,7 +182,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     //将视图刚要显示的时候，将传递过来的内容在屏幕中显示
-    self.inputText.text = self.calculator.screen;
+    NSString *tmpStr = self.calculator.screen;
+    if (tmpStr.length == 13) {
+        NSLog(@"first view length = 13");
+        self.inputText.text = [tmpStr substringWithRange:NSMakeRange(tmpStr.length - 13, 13)];
+    }else{
+        NSLog(@"first view length < 13");
+        self.inputText.text = tmpStr;
+    }
+    //self.inputText.text = self.calculator.screen;
 }
 
 
