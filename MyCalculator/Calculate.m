@@ -126,8 +126,6 @@ arrayForOperator;
     
     int intContent = [content intValue];
     double doubleContent = [content doubleValue];
-    
-    
     if ((doubleContent - intContent == 0))
         return YES;
     else

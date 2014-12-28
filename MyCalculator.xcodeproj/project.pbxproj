@@ -21,8 +21,8 @@
 		54D24F951A41837000483260 /* Calculate+Health.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D24F941A41837000483260 /* Calculate+Health.m */; };
 		54D70B4E1A3EFCC3006241AC /* advancedCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D70B4D1A3EFCC3006241AC /* advancedCalculator.m */; };
 		54D70B511A3F0C3F006241AC /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D70B501A3F0C3F006241AC /* SecondViewController.m */; };
+		8B1A09201A4F91CF000C8AE0 /* drawRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1A091F1A4F91CF000C8AE0 /* drawRectView.m */; };
 		8B6D2E411A456DB800B6EC70 /* TriangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D2E401A456DB800B6EC70 /* TriangleViewController.m */; };
-		8B9BB4DE1A428CAB009B9472 /* UIView+drawRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BB4DD1A428CAB009B9472 /* UIView+drawRectView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,10 +63,10 @@
 		54D70B4D1A3EFCC3006241AC /* advancedCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = advancedCalculator.m; sourceTree = "<group>"; };
 		54D70B4F1A3F0C3F006241AC /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		54D70B501A3F0C3F006241AC /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		8B1A091E1A4F91CF000C8AE0 /* drawRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawRectView.h; sourceTree = "<group>"; };
+		8B1A091F1A4F91CF000C8AE0 /* drawRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = drawRectView.m; sourceTree = "<group>"; };
 		8B6D2E3F1A456DB800B6EC70 /* TriangleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleViewController.h; sourceTree = "<group>"; };
 		8B6D2E401A456DB800B6EC70 /* TriangleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleViewController.m; sourceTree = "<group>"; };
-		8B9BB4DC1A428CAB009B9472 /* UIView+drawRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+drawRectView.h"; sourceTree = "<group>"; };
-		8B9BB4DD1A428CAB009B9472 /* UIView+drawRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+drawRectView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 				5460F2C91A3450290045098C /* Supporting Files */,
 				5457C08C1A3C160800C36CCD /* btnView.h */,
 				5457C08D1A3C160800C36CCD /* btnView.m */,
-				8B9BB4DC1A428CAB009B9472 /* UIView+drawRectView.h */,
-				8B9BB4DD1A428CAB009B9472 /* UIView+drawRectView.m */,
+				8B1A091E1A4F91CF000C8AE0 /* drawRectView.h */,
+				8B1A091F1A4F91CF000C8AE0 /* drawRectView.m */,
 			);
 			path = MyCalculator;
 			sourceTree = "<group>";
@@ -282,8 +282,8 @@
 				547166091A36E307006ADFAF /* Stack.m in Sources */,
 				5460F2CC1A3450290045098C /* main.m in Sources */,
 				544B1FB81A41A79200642011 /* HealthViewController.m in Sources */,
-				8B9BB4DE1A428CAB009B9472 /* UIView+drawRectView.m in Sources */,
 				5457C08E1A3C160800C36CCD /* btnView.m in Sources */,
+				8B1A09201A4F91CF000C8AE0 /* drawRectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

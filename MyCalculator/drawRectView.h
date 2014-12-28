@@ -1,13 +1,13 @@
 //
-//  UIView+drawRectView.h
+//  drawRectView.h
 //  MyCalculator
 //
-//  Created by zhengcc on 14/12/18.
+//  Created by zhengcc on 14/12/28.
 //  Copyright (c) 2014年 SSE USTC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (drawRectView)
+@interface drawRectView : UIView
 
 @end
