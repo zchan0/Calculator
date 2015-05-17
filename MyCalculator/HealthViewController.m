@@ -71,6 +71,7 @@
 {
     [super viewDidLoad];
     self.calculator = [[Calculate alloc]init];
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
 }
 
 @end

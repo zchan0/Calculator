@@ -190,6 +190,9 @@
     }
 }
 
+- (void)viewDidLoad {
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {

@@ -139,7 +139,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.calculator = [[advancedCalculator alloc]init];
-
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

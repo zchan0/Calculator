@@ -407,6 +407,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liang Yi (4S2RD24A3K)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Liang Yi (4S2RD24A3K)";
 				INFOPLIST_FILE = MyCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

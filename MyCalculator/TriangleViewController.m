@@ -200,7 +200,8 @@
     //self.inputText.text = self.calculator.screen;
 }
 
-
-
+- (void)viewDidLoad {
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
 
 @end
