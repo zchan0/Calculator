@@ -1,8 +1,8 @@
 Calculator
 ==========
 
-a simple calculator on iOS<br>
+A simple calculator on iOS. (Just a demo, only support one screen size. )
 
-[Blog](http://blog.zchan.me/2014/12/14/simple-calculator-on-ios-1/)<br>
+[Blog](https://segmentfault.com/a/1190000002423852)
 
-![Demo](http://home.ustc.edu.cn/~sa514014/img/calculator.gif)
+![Demo](https://i.imgur.com/kip6n7l.gif)
