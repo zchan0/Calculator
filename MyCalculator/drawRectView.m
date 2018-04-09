@@ -36,7 +36,7 @@
 {
     [self setup];
     [self setNeedsDisplay];
-    
+    [super awakeFromNib];
 }
 
 @end

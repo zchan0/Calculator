@@ -16,6 +16,7 @@
     [self.layer setMasksToBounds:YES];
     [self.layer setCornerRadius:12];
     [self.layer setBorderWidth:0];
+    [super awakeFromNib];
 }
 
 @end
